@@ -1,0 +1,43 @@
+{% extends 'navigationbar.html' %}
+{% load static%}
+{% block body %}
+<style>
+    body{
+        background: url('{% static "images/100.jpg" %}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        }
+</style>
+
+<div class="container" style="margin-top:70px">
+<h2 class="text-center text-primary font-weight-bold">View Enquiry</h2>
+    <table id="example" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>EmailID</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for i in enq %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Contact}}</td>
+            <td>{{i.EmailID}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Gender}}</td>
+            <td><a class="btn btn-danger" href="{% url 'delete_enquiry' i.id%}" onclick="return confirm('Are You Sure?')">Delete</a> </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    {% endblock %}

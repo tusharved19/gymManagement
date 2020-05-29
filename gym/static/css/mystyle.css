@@ -1,0 +1,17 @@
+.nav-link{
+color:white !important;
+}
+
+.nav-link:hover{
+background-color: lightblue !important;
+border-radius:10px;
+}
+
+hr.rounded{
+border-top:8px solid lightblue;
+border-radius: 5px;
+}
+
+.mydivstyle:hover{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    transform:translateY(-20PX);

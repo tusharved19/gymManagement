@@ -1,0 +1,44 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+
+{% block body %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Logged in succesfully');
+    window.location=('{% url 'Home' %}');   
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials , Try Again');
+</script>
+{% endifequal %}
+    <style>
+        body{
+            background: url('{% static "images/3.jpeg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            }
+    </style>
+
+<div class="container" style="margin-top:75px">
+<h2 class="text-center text-danger font-weight-bold">Admin Login</h2>
+    <form method="post">
+
+        {% csrf_token %}
+       
+        <label><b class="text-warning">Admin Name</b></label>
+        <input type = "text" name ="uname" class="form-control" placeholder="Enter Name">
+        <label><b class="text-warning">Password</b></label>
+        <input type = "password" name ="pwd" class="form-control" placeholder="Enter Password">
+       <br>
+        <button type = submit class="form-control btn btn-info">Login</button>
+        
+        </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'navigationbar.html' %}
+{% load static%}
+{% block body %}
+<style>
+    body{
+        background: url('{% static "images/100.jpg" %}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        }
+</style>
+
+<div class="container" style="margin-top:70px">
+<h2 class="text-center text-primary font-weight-bold">Add Member</h2>
+    <form method="post">
+        {% csrf_token %}
+       
+        <label><b>Name</b></label>
+        <input type= "text" name="name" class="form-control" required>
+        <label><b>Contact</b></label>
+        <input type= "text" name ="contact" class="form-control" required>
+        <label><b>EmailID</b></label>
+        <input type= "email" name="emailid" class="form-control" required>
+        <label><b>Age</b></label>
+        <input type= "text" name="age" class="form-control" required>
+        <label><b>Gender</b></label>
+        <input type= "radio" name="gender" value="male"> Male
+        <input type= "radio" name="gender" value="female"> Female
+        <br>
+        <label><b>PlanName</b></label>
+        <select name="plan" class="form-control">
+            {% for i in plan %}
+            <option value="{{i.name}}">{{i.name}}</option>
+            {% endfor %}
+        </select>
+        <label><b>Joindate</b></label>
+        <input type= "date" name ="joindate" class="form-control" required>
+        <label><b>Plan Expire Date</b></label>
+        <input type= "date" name="expiredate" class="form-control" required>
+        <label><b>InitialAmount(In Rs.)</b></label>
+        <input type= "text" name="initialamount" class="form-control" required>
+        <br>
+        <input type= submit value="Submit" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Record Saved Succesfully');
+    window.location=('{% url 'vmember' %}');   
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong , Try Again');
+</script>
+{% endifequal %}
+
+{% endblock %}

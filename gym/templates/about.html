@@ -1,0 +1,35 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    body{
+        background: url('{% static "images/6.jpeg" %}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        }
+</style>
+<div class="container" style="margin-top: 60px;">
+<h2 class="text-center text-primary font-weight-bold">About Us</h2>
+<div class="col-sm-2 text-right">
+    <img src="{% static 'images/logo1.png' %}" width="200" height="50">
+</div>
+
+    <br><br>
+    <div class="row">
+        <div class="text-danger col-sm-8 text-left mt-5" >
+            <p <i class="fa fa-align-center" aria-hidden="true"></i>Motivation Thought</p>
+            “What hurts today makes you stronger tomorrow.”<br>
+
+            — Jay Cutler, pro bodybuilder and four-time Mr. Olympia
+            
+        </div>
+    </div>
+
+</>
+<footer class=" text-warning text-center font-weight-bold mt-5">
+    <h4> Copyright &copy; 2020 , All Rights Reserved</h4>
+</footer>
+{% endblock %}

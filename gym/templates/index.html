@@ -1,0 +1,44 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+
+{% block body %}
+
+<style>
+    body{
+        background: url('{% static "images/9.jpeg" %}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        }
+</style>
+
+<div class="container" style="margin-top: 70px">
+<h2 class="text-center text-primary font-weight-bold">Admin Dashboard</h2>
+
+    <br><br><br>
+    <div class="row">
+        <div class="col-sm-3 text-center mydivstyle">
+            <h2 style="color: skyblue">{{e1}}</h2>
+            <a href="{% url 'view' %}"><h4 style="color: red">Enquiries<h4</a>
+            <hr class="rounded"> 
+        </div>
+        <div class="col-sm-3 text-center mydivstyle">
+            <h2 style="color: skyblue">{{eq1}}</h2>
+            <a href="{% url 'vequip' %}"><h4 style="color: yellowgreen">Equipments<h4</a>
+            <hr class="rounded"> 
+        </div>
+        <div class="col-sm-3 text-center mydivstyle">
+            <h2 style="color: skyblue">{{p1}}</h2>
+            <a href="{% url 'vplan' %}"><h4 style="color:blueviolet">Plans<h4</a>
+            <hr class="rounded"> 
+        </div>
+        <div class="col-sm-3 text-center mydivstyle">
+            <h2 style="color: skyblue">{{m1}}</h2>
+            <a href="{% url 'vmember' %}"><h4 style="color: white">Member<h4</a>
+            <hr class="rounded"> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}
